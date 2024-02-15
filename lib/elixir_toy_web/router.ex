@@ -18,6 +18,12 @@ defmodule ElixirToyWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/counters", CountersLive.Index, :index
+    live "/counters/new", CountersLive.Index, :new
+    live "/counters/:id/edit", CountersLive.Index, :edit
+
+    live "/counters/:id", CountersLive.Show, :show
+    live "/counters/:id/show/edit", CountersLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
